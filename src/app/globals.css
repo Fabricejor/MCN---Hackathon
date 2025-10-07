@@ -1,3 +1,4 @@
+@import "tailwindcss";
 /* deux police uniquement  playfair display et merriweather */
 /* il ny aura qu'un seul theme le light ( melange des fois au dark ) */
 :root {

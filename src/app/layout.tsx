@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Merriweather, Playfair_Display } from "next/font/google";
 import "./globals.css";
+import Navbar from "@/components/layouts/Navbar";
+import Footer from "@/components/layouts/Footer";
 
 const merriweather = Merriweather({
   variable: "--font-merriweather",
@@ -41,7 +43,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${merriweather.variable} ${playfair.variable} antialiased`}>
+        <Navbar />
         {children}
+        <Footer />
       </body>
     </html>
   );
