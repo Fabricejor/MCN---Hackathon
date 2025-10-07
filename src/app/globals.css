@@ -1,8 +1,13 @@
 @import "tailwindcss";
-
+/* il ny aura qu'un seul theme le light ( melange des fois au dark ) */
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --brown: #5C3A21;
+  --black: #0D0D0D;
+  --gold: #D4AF37;
+  --beige:#F5F1E6;
+  --light: #FFFFFF;
 }
 
 @theme inline {
