@@ -11,7 +11,7 @@ type EventCardProps = {
 function EventCard({ title, date, description, image }: EventCardProps) {
   return (
     <div className="overflow-hidden rounded-xl border border-black/10 bg-[var(--light)] shadow-sm">
-      <img src={image} alt="" className="h-40 w-full object-cover" />
+      <img src={image} alt="" className="w-full aspect-[16/9] object-cover" />
       <div className="space-y-2 p-4">
         <h4 className="text-base font-semibold text-[var(--black)]">{title}</h4>
         <p className="text-xs text-[color:rgb(0_0_0_/_0.6)]">{date}</p>
@@ -30,19 +30,19 @@ export default function UpcomingEvents() {
       title: 'Exposition temporaire : Art contemporain africain',
       date: '15 Décembre 2024 - 18h00',
       description: 'Découvrez les œuvres d’artistes contemporains africains émergents.',
-      image: '/images/billeterie%20v1%20event.png',
+      image: '/images/exposition peinture.png',
     },
     {
       title: 'Concert de musique traditionnelle',
       date: '20h00',
       description: 'Une soirée musicale exceptionnelle avec des artistes renommés.',
-      image: '/images/billeterie%20v1%20event%20(2).png',
+      image: '/images/exposition music.png',
     },
     {
       title: 'Atelier céramique',
       date: '18h00',
       description: 'Apprenez les techniques ancestrales de poterie.',
-      image: '/images/billeterie%20v1%20event%20(3).png',
+      image: '/images/exposition sculture.png',
     },
   ]
 

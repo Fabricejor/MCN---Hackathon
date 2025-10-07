@@ -2,10 +2,13 @@
 import React from 'react'
 import Link from 'next/link'
 
+type Category = 'Livres' | 'Artisanat' | 'Reproductions'
+
 type ShopItem = {
   title: string
   price: string
   image: string
+  category: Category
 }
 
 function ShopCard({ title, price, image }: ShopItem) {
@@ -30,23 +33,29 @@ export default function MuseumShop() {
       title: 'Catalogue des collections',
       price: '8 500 FCFA',
       image: '/images/billeterie%20v1%20boutique.png',
+      category: 'Livres',
     },
     {
       title: 'Masque artisanal',
       price: '12 000 FCFA',
       image: '/images/billeterie%20v1%20boutique%20(2).png',
+      category: 'Artisanat',
     },
     {
       title: 'Cartes postales',
       price: '2 000 FCFA',
       image: '/images/billeterie%20v1%20boutique%20(3).png',
+      category: 'Reproductions',
     },
     {
       title: 'Bijou inspiré des collections',
       price: '9 500 FCFA',
       image: '/images/billeterie%20v1%20boutique%20(4).png',
+      category: 'Artisanat',
     },
   ]
+
+  const filteredItems = activeFilter === 'Tous' ? items : items.filter((it) => it.category === activeFilter)
 
   return (
     <section className="mx-auto max-w-6xl px-4 py-10 sm:py-12">
@@ -66,7 +75,7 @@ export default function MuseumShop() {
                 key={label}
                 onClick={() => setActiveFilter(label)}
                 type="button"
-                className={`rounded-md px-3 py-1.5 text-sm font-semibold transition ${
+                className={`rounded-md px-3 py-1.5 text-sm font-semibold transition-colors ${
                   isActive
                     ? 'bg-[var(--gold)] text-[var(--black)] shadow'
                     : 'bg-transparent text-[var(--black)] hover:bg-[color:rgb(0_0_0_/_0.04)]'
@@ -81,8 +90,10 @@ export default function MuseumShop() {
       </div>
 
       <div className="mt-6 grid gap-6 sm:mt-8 sm:grid-cols-2 lg:grid-cols-4">
-        {items.map((it) => (
-          <ShopCard key={it.title} {...it} />
+        {filteredItems.map((it) => (
+          <div key={it.title} className="animate-[fadeInUp_0.45s_ease-out]">
+            <ShopCard {...it} />
+          </div>
         ))}
       </div>
     </section>
