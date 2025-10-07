@@ -1,10 +1,12 @@
 @import "tailwindcss";
+/* deux police uniquement  playfair display et merriweather */
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
 /* il ny aura qu'un seul theme le light ( melange des fois au dark ) */
 :root {
   --background: #ffffff;
   --foreground: #171717;
   --brown: #5C3A21;
-  --black: #0D0D0D;
+  --black: #1C1C1C;
   --gold: #D4AF37;
   --beige:#F5F1E6;
   --light: #FFFFFF;
