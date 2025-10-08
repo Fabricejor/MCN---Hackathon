@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { Merriweather, Playfair_Display } from "next/font/google";
 import "./globals.css";
-import Navbar from "@/components/layouts/Navbar";
-import Footer from "@/components/layouts/Footer";
+import Navbar from "@/components/layouts/navbar";
+import Footer from "@/components/layouts/footer";
 
 const merriweather = Merriweather({
   variable: "--font-merriweather",
