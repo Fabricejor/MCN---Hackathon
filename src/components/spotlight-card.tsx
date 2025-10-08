@@ -24,9 +24,9 @@ const sizeMap = {
   lg: 'w-80 h-96'
 };
 
-const GlowCard: React.FC<GlowCardProps> = ({ 
-  children, 
-  className = '', 
+const GlowCard: React.FC<GlowCardProps> = ({
+  children,
+  className = '',
   glowColor = 'blue',
   size = 'md',
   width,

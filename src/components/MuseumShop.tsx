@@ -12,13 +12,16 @@ type ShopItem = {
 }
 
 function ShopCard({ title, price, image }: ShopItem) {
+  const priceValue = price.replace(/\s/g, '').replace('FCFA', '')
+  const purchaseUrl = `/achat?title=${encodeURIComponent(title)}&price=${encodeURIComponent(priceValue)}&image=${encodeURIComponent(image)}`
+  
   return (
     <div className="overflow-hidden rounded-xl border border-black/10 bg-[var(--light)] shadow-sm">
       <img src={image} alt="" className="h-36 w-full object-cover" />
       <div className="space-y-2 p-4">
         <h4 className="text-base font-semibold text-[var(--black)]">{title}</h4>
         <p className="text-sm text-[var(--brown)]">{price}</p>
-        <Link href="/boutique" className="mt-3 inline-flex w-full items-center justify-center rounded-md bg-[var(--gold)] px-4 py-2.5 text-sm font-semibold text-[var(--black)] hover:brightness-95">
+        <Link href={purchaseUrl} className="mt-3 inline-flex w-full items-center justify-center rounded-md bg-[var(--gold)] px-4 py-2.5 text-sm font-semibold text-[var(--black)] hover:brightness-95">
           Acheter
         </Link>
       </div>

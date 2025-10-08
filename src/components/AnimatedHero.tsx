@@ -54,6 +54,8 @@ export default function AnimatedHero({
   const counterNextSplitRef = useRef<SplitText | null>(null);
   const [imagesLoaded, setImagesLoaded] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
+  const autoPlayTimerRef = useRef<NodeJS.Timeout | null>(null);
+  const hasStartedAutoPlayRef = useRef(false);
 
   useEffect(() => {
     let loaded = 0;
@@ -219,18 +221,53 @@ export default function AnimatedHero({
       type: 'wheel,touch,pointer',
       wheelSpeed: -1,
       onDown: () => {
-        if (!animatingRef.current) gotoSection(currentIndexRef.current + 1, 1);
+        if (!animatingRef.current) {
+          // Stop auto-play when user interacts
+          if (autoPlayTimerRef.current) {
+            clearTimeout(autoPlayTimerRef.current);
+            autoPlayTimerRef.current = null;
+          }
+          gotoSection(currentIndexRef.current + 1, 1);
+        }
       },
       onUp: () => {
-        if (!animatingRef.current) gotoSection(currentIndexRef.current + 1, 1);
+        if (!animatingRef.current) {
+          // Stop auto-play when user interacts
+          if (autoPlayTimerRef.current) {
+            clearTimeout(autoPlayTimerRef.current);
+            autoPlayTimerRef.current = null;
+          }
+          gotoSection(currentIndexRef.current + 1, 1);
+        }
       },
       tolerance: 10,
       preventDefault: false,
     });
 
+    // Show first image
     gotoSection(0, 1);
+    
+    // Start auto-play after 3 seconds (only once)
+    if (!hasStartedAutoPlayRef.current) {
+      hasStartedAutoPlayRef.current = true;
+      autoPlayTimerRef.current = setTimeout(() => {
+        const autoPlay = () => {
+          if (!animatingRef.current) {
+            gotoSection(currentIndexRef.current + 1, 1);
+          }
+          autoPlayTimerRef.current = setTimeout(autoPlay, 5000);
+        };
+        autoPlay();
+      }, 3000);
+    }
 
     return () => {
+      // Clean up auto-play timer
+      if (autoPlayTimerRef.current) {
+        clearTimeout(autoPlayTimerRef.current);
+        autoPlayTimerRef.current = null;
+      }
+      
       if (observerRef.current) {
         observerRef.current.kill();
         observerRef.current = null;
