@@ -39,7 +39,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 text-center md:text-left">
           <div>
             <h3 className="text-xl font-bold mb-4 text-[var(--gold)]" style={{ fontFamily: "'Playfair Display', serif" }}>MCN</h3>
-            <p className="font-sans">Musée des Civilisations Noires - Préserver, célébrer et partager l'héritage culturel africain.</p>
+            <p className="font-sans">Musée des Civilisations Noires - Préserver, célébrer et partager l&apos;héritage culturel africain.</p>
           </div>
           <div>
             <h3 className="text-xl font-bold mb-4 text-[var(--gold)]" style={{ fontFamily: "'Playfair Display', serif" }}>Navigation</h3>
