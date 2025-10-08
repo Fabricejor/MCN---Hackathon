@@ -1,5 +1,7 @@
+'use client'
 import React from 'react'
 import Link from 'next/link'
+import { GlowCard } from '@/components/spotlight-card'
 
 type PriceRow = {
   label: string
@@ -14,12 +16,16 @@ type VisitCardProps = {
 
 function VisitCard({ title, icon, items }: VisitCardProps) {
   return (
-    <div className="rounded-2xl border border-black/10 bg-[var(--beige)] px-6 py-6 shadow-sm sm:px-8 sm:py-8">
+    <GlowCard 
+      glowColor="orange" 
+      customSize 
+      className="rounded-2xl bg-[var(--beige)] px-6 py-6 shadow-sm sm:px-8 sm:py-8 w-full"
+    >
       <div className="mb-4 flex items-center gap-3 text-[var(--brown)]">
         <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-[var(--gold)]/20">
           {icon}
         </span>
-        <h3 className="text-xl font-semibold">{title}</h3>
+        <h3 className="font-serif text-xl font-semibold">{title}</h3>
       </div>
 
       <dl className="space-y-4">
@@ -30,7 +36,7 @@ function VisitCard({ title, icon, items }: VisitCardProps) {
           </div>
         ))}
       </dl>
-    </div>
+    </GlowCard>
   )
 }
 
@@ -41,7 +47,7 @@ export default function VisitInfo() {
         <h2 className="font-serif text-3xl font-semibold text-[var(--brown)] sm:text-4xl">
           Informations de visite
         </h2>
-        <p className="mt-3 text-sm text-[color:rgb(0_0_0_/_0.7)] sm:text-base">
+        <p className="mt-3 text-sm text-[color:rgb(0_0_0_/_0.65)] sm:text-base">
           Le Musée est ouvert du mardi au dimanche de 10h00 à 19h00.
         </p>
       </div>
@@ -72,7 +78,7 @@ export default function VisitInfo() {
       <div className="mt-8 flex justify-center sm:mt-10">
         <Link
           href="/reservation"
-          className="rounded-md bg-[var(--gold)] px-6 py-3 text-sm font-semibold text-[var(--black)] shadow hover:brightness-95 focus:outline-none focus:ring-2 focus:ring-[color:rgb(212_175_55_/_0.5)] sm:px-8 sm:py-3.5"
+          className="rounded-xl bg-[var(--gold)] px-8 py-3.5 font-serif text-sm font-semibold text-[var(--black)] shadow-md hover:brightness-95 focus:outline-none focus:ring-2 focus:ring-[color:rgb(212_175_55_/_0.5)] sm:px-10 sm:py-4"
         >
           Réserver une visite
         </Link>

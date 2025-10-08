@@ -3,8 +3,6 @@
 import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import Navbar from '@/components/layouts/Navbar';
-import Footer from '@/components/layouts/Footer';
 
 type FilterType = 'Toutes' | 'Peintures' | 'Sculptures' | 'Textiles' | 'Contemporain';
 
@@ -56,7 +54,6 @@ export default function DecouvertesPage() {
 
   return (
     <div className="min-h-screen bg-[#F5F1E6]">
-      <Navbar />
 
       {/* Hero Section */}
       <section className="bg-[#1C1C1C] text-white py-16 px-8">
@@ -269,7 +266,6 @@ export default function DecouvertesPage() {
         </div>
       </section>
 
-      <Footer />
     </div>
   );
 }
