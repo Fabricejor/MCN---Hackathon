@@ -5,6 +5,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import Navbar from '@/components/layouts/Navbar';
 import Footer from '@/components/layouts/Footer';
+import { HeroGeometric } from '@/components/ui/shape-landing-hero';
 
 type FilterType = 'Toutes' | 'Peintures' | 'Sculptures' | 'Textiles' | 'Contemporain';
 
@@ -58,77 +59,8 @@ export default function DecouvertesPage() {
     <div className="min-h-screen bg-[#F5F1E6]">
       <Navbar />
 
-      {/* Hero Section */}
-      <section className="bg-[#1C1C1C] text-white py-16 px-8">
-        <div className="max-w-4xl mx-auto text-center">
-          <h1 className="text-5xl font-bold mb-4 text-[#D4AF37]" style={{ fontFamily: 'Playfair Display, serif' }}>
-            Découvertes
-          </h1>
-          <p className="text-lg text-gray-300">
-            Explorez notre patrimoine à travers des expériences immersives
-          </p>
-        </div>
-      </section>
-
-      {/* Section Visite Augmentée */}
-      <section className="py-16 px-8">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-4xl font-bold text-center mb-12 text-[#1C1C1C]" style={{ fontFamily: 'Playfair Display, serif' }}>
-            Visite Augmentée
-          </h2>
-
-          <div className="bg-white rounded-3xl shadow-xl overflow-hidden p-8">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-              {/* Partie gauche - Options */}
-              <div className="space-y-8">
-                <h3 className="text-2xl font-bold text-[#1C1C1C]" style={{ fontFamily: 'Playfair Display, serif' }}>
-                  Explorez le musée<br />autrement
-                </h3>
-
-                <div className="space-y-4">
-                  <div className="flex items-center gap-4">
-                    <span className="text-2xl text-[#D4AF37]">👉</span>
-                    <span className="text-gray-800 text-lg">Parcours thématiques guidés</span>
-                  </div>
-
-                  <div className="flex items-center gap-4">
-                    <span className="text-2xl text-[#D4AF37]">📷</span>
-                    <span className="text-gray-800 text-lg">Réalité augmentée interactive</span>
-                  </div>
-
-                  <div className="flex items-center gap-4">
-                    <span className="text-2xl text-[#D4AF37]">🗺️</span>
-                    <span className="text-gray-800 text-lg">Navigation GPS indoor</span>
-                  </div>
-
-                  <div className="flex items-center gap-4">
-                    <span className="text-2xl text-[#D4AF37]">👓</span>
-                    <span className="text-gray-800 text-lg">Expérience 360° à distance</span>
-                  </div>
-                </div>
-
-                <button className="bg-[#D4AF37] text-[#1C1C1C] py-3 px-8 rounded-full font-semibold hover:bg-[#c5a033] transition-colors text-lg">
-                  Commencer la visite
-                </button>
-              </div>
-
-              {/* Partie droite - Carte interactive */}
-              <div className="bg-[#1C1C1C] rounded-2xl p-8 flex items-center justify-center min-h-[400px] relative overflow-hidden">
-                {/* Image de la carte du musée */}
-                <div className="relative w-full h-full flex items-center justify-center">
-                  <Image
-                    src="/images/visite augmente map.png"
-                    alt="Carte interactive du musée"
-                    width={600}
-                    height={400}
-                    className="object-contain"
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* Section Visite Augmentée (Hero) */}
+      <HeroGeometric badge="Musée des Cultures" title1="Découvertes" title2="" />
 
       {/* Section Expositions */}
       <section className="py-16 px-8 bg-white">
