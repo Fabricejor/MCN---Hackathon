@@ -18,9 +18,9 @@ interface ModelViewerProps {
 export default function ModelViewer({ modelPath }: ModelViewerProps) {
   return (
     <Canvas camera={{ position: [0, 0, 5], fov: 50 }}>
-      <ambientLight intensity={3} />
-      <directionalLight position={[10, 10, 5]} intensity={4} />
-      <directionalLight position={[-10, -10, -5]} intensity={2} />
+      <ambientLight intensity={1.5} />
+      <directionalLight position={[10, 10, 5]} intensity={2} />
+      <directionalLight position={[-10, -10, -5]} intensity={1} />
       <Suspense fallback={null}>
         <Model path={modelPath} />
       </Suspense>

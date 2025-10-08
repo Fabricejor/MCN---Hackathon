@@ -3,7 +3,7 @@
 import { use, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import Script from 'next/script'; // Import Next.js Script component
+import Script from 'next/script';
 import ModelViewer from '@/components/ModelViewer'; // Import the new component
 // import Navbar from '@/components/layouts/Navbar';
 // import Footer from '@/components/layouts/Footer';
@@ -229,14 +229,8 @@ export default function OeuvreDetailPage({ params }: { params: Promise<{ id: str
                     </div>
                     <span className="text-[#D4AF37] group-hover:translate-x-1 transition-transform">↗</span>
                   </button>
-
-                  {/* ElevenLabs Convai Widget */}
-                  <div className="mt-4">
-                    <elevenlabs-convai agent-id="agent_6401k72h8jh3ekatzfqnqpg0h5wz"></elevenlabs-convai>
-                  </div>
                 </div>
               </div>
-
               {/* Contexte culturel */}
               <div className="bg-white rounded-2xl p-8 shadow-lg">
                 <h2 className="text-2xl font-bold mb-6 text-[#1C1C1C]" style={{ fontFamily: 'Playfair Display, serif' }}>
@@ -290,7 +284,8 @@ export default function OeuvreDetailPage({ params }: { params: Promise<{ id: str
       </main>
 
       {/* <Footer /> */}
-      <Script src="https://unpkg.com/@elevenlabs/convai-widget-embed" strategy="lazyOnload" />
+      <elevenlabs-convai agent-id="agent_6401k72h8jh3ekatzfqnqpg0h5wz"></elevenlabs-convai>
+      <Script src="https://unpkg.com/@elevenlabs/convai-widget-embed" async />
     </div>
   );
 }
