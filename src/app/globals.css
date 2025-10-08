@@ -19,11 +19,11 @@
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
   @keyframes marquee {
-    from {
-      transform: translateX(0);
+  from {
+    transform: translateX(0);
     }
-    to {
-      transform: translateX(calc(-100% - var(--gap)));
+  to {
+    transform: translateX(calc(-100% - var(--gap)));
     }
   }
 }
