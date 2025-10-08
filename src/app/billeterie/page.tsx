@@ -6,7 +6,7 @@ import UpcomingEvents from '@/components/UpcomingEvents'
 import MuseumShop from '@/components/MuseumShop'
 import ReservationPricing from '@/components/ReservationPricing'
 
-export default function page() {
+export default function BilleteriePage() {
   return (
     <div>
       <AnimatedHero />
