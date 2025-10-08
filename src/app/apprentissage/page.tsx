@@ -237,85 +237,85 @@ export default function ApprentissagePage() {
       </section>
 
       {/* Section Trophées et communauté */}
-      <section className="py-16 px-8 bg-[#1C1C1C] text-white">
+      <section className="py-16 px-8 bg-[#2C2C2C] text-white">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-12 text-[#D4AF37]" style={{ fontFamily: 'Playfair Display, serif' }}>
+          <h2 className="text-4xl font-bold text-center mb-12 text-[#D4AF37]" style={{ fontFamily: 'Playfair Display, serif' }}>
             Trophées et communauté
           </h2>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {/* Système de récompenses */}
             <div>
-              <h3 className="text-xl font-semibold mb-4">Système de récompenses</h3>
-              <p className="text-gray-300 mb-6 text-sm">
+              <h3 className="text-2xl font-semibold mb-3">Système de récompenses</h3>
+              <p className="text-gray-300 mb-8 text-sm leading-relaxed">
                 Gagnez des points et débloquez des badges en découvrant les œuvres ou en réussissant les quiz.
               </p>
 
-              <div className="space-y-4 mb-6">
+              <div className="space-y-6 mb-8">
                 <div className="flex items-center gap-4">
                   <div className="w-16 h-16 bg-[#D4AF37] rounded-full flex items-center justify-center flex-shrink-0">
-                    <span className="text-2xl">🗺️</span>
+                    <span className="text-3xl">🗺️</span>
                   </div>
                   <div>
-                    <h4 className="font-bold">Explorateur des Royaumes</h4>
+                    <h4 className="font-bold text-lg">Explorateur des Royaumes</h4>
                     <p className="text-sm text-gray-400">Visitez 10 expositions différentes</p>
                   </div>
                 </div>
 
                 <div className="flex items-center gap-4">
                   <div className="w-16 h-16 bg-[#D4AF37] rounded-full flex items-center justify-center flex-shrink-0">
-                    <span className="text-2xl">🛡️</span>
+                    <span className="text-3xl">💡</span>
                   </div>
                   <div>
-                    <h4 className="font-bold">Gardien du Savoir</h4>
+                    <h4 className="font-bold text-lg">Gardien du Savoir</h4>
                     <p className="text-sm text-gray-400">Découvrez 5 quiz consécutifs</p>
                   </div>
                 </div>
 
                 <div className="flex items-center gap-4">
                   <div className="w-16 h-16 bg-[#D4AF37] rounded-full flex items-center justify-center flex-shrink-0">
-                    <span className="text-2xl">🎨</span>
+                    <span className="text-3xl">🌸</span>
                   </div>
                   <div>
-                    <h4 className="font-bold">Œil d'Artiste</h4>
+                    <h4 className="font-bold text-lg">Œil d'Artiste</h4>
                     <p className="text-sm text-gray-400">Analysez 20 œuvres d'art</p>
                   </div>
                 </div>
               </div>
 
-              <div className="bg-[#2C2C2C] rounded-lg p-4">
-                <div className="flex justify-between items-center mb-2">
-                  <span className="text-sm">Niveau 3</span>
-                  <span className="text-sm text-[#D4AF37]">750/1000 XP</span>
+              <div className="bg-[#3C3C3C] rounded-lg p-5">
+                <div className="flex justify-between items-center mb-3">
+                  <span className="text-base font-medium">Niveau 3</span>
+                  <span className="text-base text-[#D4AF37] font-medium">750/1000 XP</span>
                 </div>
-                <div className="w-full bg-gray-700 rounded-full h-2">
-                  <div className="bg-[#D4AF37] h-2 rounded-full" style={{ width: '75%' }}></div>
+                <div className="w-full bg-[#1C1C1C] rounded-full h-3">
+                  <div className="bg-[#D4AF37] h-3 rounded-full transition-all" style={{ width: '75%' }}></div>
                 </div>
               </div>
             </div>
 
             {/* Exprimez vos impressions */}
             <div>
-              <h3 className="text-xl font-semibold mb-4">Exprimez vos impressions</h3>
+              <h3 className="text-2xl font-semibold mb-6">Exprimez vos impressions</h3>
 
-              <form onSubmit={handlePublish} className="bg-white text-[#1C1C1C] rounded-lg p-6 mb-6">
+              <form onSubmit={handlePublish} className="bg-white text-[#1C1C1C] rounded-xl p-6 mb-6 shadow-lg">
                 <textarea
                   value={commentaire}
                   onChange={(e) => setCommentaire(e.target.value)}
                   placeholder="Partagez votre expérience au musée..."
-                  className="w-full h-24 p-3 border border-gray-200 rounded-lg resize-none focus:outline-none focus:border-[#D4AF37] mb-4"
+                  className="w-full h-28 p-4 border border-gray-200 rounded-lg resize-none focus:outline-none focus:border-[#D4AF37] mb-4 text-sm"
                   required
                 />
                 <div className="flex justify-between items-center">
-                  <div className="flex gap-3">
-                    <button type="button" className="text-gray-400 hover:text-[#D4AF37]">📷</button>
-                    <button type="button" className="text-gray-400 hover:text-[#D4AF37]">😊</button>
-                    <button type="button" className="text-gray-400 hover:text-[#D4AF37]">👍</button>
-                    <button type="button" className="text-gray-400 hover:text-[#D4AF37]">❤️</button>
+                  <div className="flex gap-3 text-xl">
+                    <button type="button" className="hover:scale-110 transition-transform">📷</button>
+                    <button type="button" className="hover:scale-110 transition-transform">😊</button>
+                    <button type="button" className="hover:scale-110 transition-transform">👍</button>
+                    <button type="button" className="hover:scale-110 transition-transform">❤️</button>
                   </div>
                   <button
                     type="submit"
-                    className="bg-[#D4AF37] text-[#1C1C1C] px-6 py-2 rounded-lg font-medium hover:bg-[#c5a033] transition-colors"
+                    className="bg-[#D4AF37] text-[#1C1C1C] px-8 py-2.5 rounded-lg font-semibold hover:bg-[#c5a033] transition-colors"
                   >
                     Publier
                   </button>
@@ -324,24 +324,24 @@ export default function ApprentissagePage() {
 
               {/* Témoignages */}
               <div className="space-y-4">
-                <div className="bg-white text-[#1C1C1C] rounded-lg p-4">
-                  <div className="flex items-start gap-3">
-                    <div className="w-10 h-10 bg-gray-300 rounded-full flex-shrink-0"></div>
+                <div className="bg-white text-[#1C1C1C] rounded-xl p-5 shadow-md">
+                  <div className="flex items-start gap-4">
+                    <div className="w-12 h-12 bg-gray-300 rounded-full flex-shrink-0"></div>
                     <div className="flex-1">
-                      <h4 className="font-bold text-sm">Aïcha Diallo</h4>
-                      <p className="text-xs text-gray-600 mb-2">
+                      <h4 className="font-bold text-base mb-1">Aïcha Diallo</h4>
+                      <p className="text-sm text-gray-600 leading-relaxed">
                         Une expérience inoubliable ! Les masques traditionnels m'ont transportée.
                       </p>
                     </div>
                   </div>
                 </div>
 
-                <div className="bg-white text-[#1C1C1C] rounded-lg p-4">
-                  <div className="flex items-start gap-3">
-                    <div className="w-10 h-10 bg-gray-300 rounded-full flex-shrink-0"></div>
+                <div className="bg-white text-[#1C1C1C] rounded-xl p-5 shadow-md">
+                  <div className="flex items-start gap-4">
+                    <div className="w-12 h-12 bg-gray-300 rounded-full flex-shrink-0"></div>
                     <div className="flex-1">
-                      <h4 className="font-bold text-sm">Mamadou Sow</h4>
-                      <p className="text-xs text-gray-600 mb-2">
+                      <h4 className="font-bold text-base mb-1">Mamadou Sow</h4>
+                      <p className="text-sm text-gray-600 leading-relaxed">
                         Les quiz sont parfaits pour apprendre en s'amusant. Mes enfants adorent !
                       </p>
                     </div>
