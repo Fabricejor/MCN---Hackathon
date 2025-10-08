@@ -39,7 +39,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 text-center md:text-left">
           <div>
             <h3 className="text-xl font-bold mb-4 text-[var(--gold)]" style={{ fontFamily: "'Playfair Display', serif" }}>MCN</h3>
-            <p className="font-sans">Musée des Civilisations Noires - Préserver, célébrer et partager l'héritage culturel africain.</p>
+            <p className="font-sans">Musée des Civilisations Noires - Préserver, célébrer et partager l&apos;héritage culturel africain.</p>
           </div>
           <div>
             <h3 className="text-xl font-bold mb-4 text-[var(--gold)]" style={{ fontFamily: "'Playfair Display', serif" }}>Navigation</h3>
@@ -60,7 +60,7 @@ export default function Footer() {
             <h3 className="text-xl font-bold mb-4 text-[var(--gold)]" style={{ fontFamily: "'Playfair Display', serif" }}>Newsletter</h3>
             <div className="flex">
               <input type="email" placeholder="Votre email" className="bg-white/20 text-white placeholder-gray-300 px-4 py-2 rounded-l-md focus:outline-none w-full" />
-              <button className="bg-[var(--gold)] text-black font-bold px-4 py-2 rounded-r-md hover:bg-opacity-90">S'abonner</button>
+              <button className="bg-[var(--gold)] text-black font-bold px-4 py-2 rounded-r-md hover:bg-opacity-90">S&apos;abonner</button>
             </div>
             <div className="flex space-x-4 mt-4 justify-center md:justify-start">
               <a href="#" aria-label="Facebook"><FaFacebookF /></a>

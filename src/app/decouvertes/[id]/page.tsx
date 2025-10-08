@@ -3,8 +3,8 @@
 import { use, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import Navbar from '@/components/layouts/Navbar';
-import Footer from '@/components/layouts/Footer';
+// import Navbar from '@/components/layouts/Navbar';
+// import Footer from '@/components/layouts/Footer';
 
 export default function OeuvreDetailPage({ params }: { params: Promise<{ id: string }> }) {
   const [activeTab, setActiveTab] = useState<'3D' | 'Photos' | 'Video'>('Photos');

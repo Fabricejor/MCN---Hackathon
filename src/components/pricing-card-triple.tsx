@@ -267,14 +267,14 @@ export default function PricingCardTwo({
                     t.btnHover,
                     ctaClassName
                   )}
-                  {...(cta as any)}
+                  {...(cta as Omit<React.AnchorHTMLAttributes<HTMLAnchorElement>, 'href' | 'children'>)}
                 >
                   {cta.label ?? 'Choose Plan'}
                 </a>
               ) : (
                 <button
                   type='button'
-                  onClick={(cta as any).onClick}
+                  onClick={(cta as Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, 'children'>).onClick}
                   aria-label={cta['aria-label'] ?? `Choose ${name}`}
                   className={cn(
                     'mt-8 inline-flex w-full items-center justify-center rounded-full px-5 py-3 text-sm font-semibold transition',

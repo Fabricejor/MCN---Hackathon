@@ -23,10 +23,10 @@ export default function OurStory() {
               Notre Histoire
             </h2>
             <p className="text-black mb-4" style={{ fontFamily: "'Open Sans', sans-serif" }}>
-              Le Musée des Civilisations Noires a été créé pour célébrer, préserver et partager la richesse culturelle des civilisations africaines et de la diaspora. Depuis notre ouverture, nous nous engageons à être un pont entre le passé et l'avenir, un lieu de mémoire et de découverte.
+              Le Musée des Civilisations Noires a été créé pour célébrer, préserver et partager la richesse culturelle des civilisations africaines et de la diaspora. Depuis notre ouverture, nous nous engageons à être un pont entre le passé et l&apos;avenir, un lieu de mémoire et de découverte.
             </p>
             <p className="text-black" style={{ fontFamily: "'Open Sans', sans-serif" }}>
-              Notre mission est de valoriser l'héritage africain sous toutes ses formes, de l'art traditionnel aux expressions contemporaines, en offrant un espace de dialogue interculturel et d'éducation pour tous.
+              Notre mission est de valoriser l&apos;héritage africain sous toutes ses formes, de l&apos;art traditionnel aux expressions contemporaines, en offrant un espace de dialogue interculturel et d&apos;éducation pour tous.
             </p>
           </div>
           <div className="w-full md:w-1/2 space-y-4">
@@ -47,7 +47,7 @@ export default function OurStory() {
         <div className="bg-[var(--beige)] rounded-lg p-10 grid md:grid-cols-2 gap-8 items-center">
           <div>
             <h3 className="text-3xl font-bold text-black mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>
-              Horaires d'ouverture
+              Horaires d&apos;ouverture
             </h3>
             <p className="text-black text-lg">Tous les jours de 10h00 à 19h00</p>
             <p className="text-black text-lg">Dimanches : fermé</p>

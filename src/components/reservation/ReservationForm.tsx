@@ -117,6 +117,9 @@ export default function ReservationForm() {
                   min="1"
                   max="50"
                   value={visitors}
+                  placeholder="Entrez le nombre de visiteurs"
+                  title="Nombre de visiteurs"
+                  aria-label="Nombre de visiteurs"
                   onChange={(e) => setVisitors(parseInt(e.target.value) || 1)}
                   className="mt-2 w-full rounded-lg border border-black/10 px-4 py-2.5 text-[var(--black)] focus:border-[var(--gold)] focus:outline-none focus:ring-2 focus:ring-[var(--gold)]/20"
                   required
@@ -129,7 +132,7 @@ export default function ReservationForm() {
           {step === 2 && (
             <div className="space-y-6">
               <h2 className="font-serif text-xl font-semibold text-[var(--brown)]">
-                2. Sélectionnez la date et l'heure
+                2. Sélectionnez la date et l&apos;heure
               </h2>
               <div className="grid gap-6 sm:grid-cols-2">
                 <div>
@@ -138,9 +141,14 @@ export default function ReservationForm() {
                   </label>
                   <input
                     type="date"
+                    id="visit-date"
+                    name="visit-date"
                     value={visitDate}
                     onChange={(e) => setVisitDate(e.target.value)}
                     min={new Date().toISOString().split('T')[0]}
+                    placeholder="Sélectionnez la date de visite"
+                    title="Date de visite"
+                    aria-label="Date de visite"
                     className="mt-2 w-full rounded-lg border border-black/10 px-4 py-2.5 text-[var(--black)] focus:border-[var(--gold)] focus:outline-none focus:ring-2 focus:ring-[var(--gold)]/20"
                     required
                   />
@@ -150,10 +158,14 @@ export default function ReservationForm() {
                     Heure de visite
                   </label>
                   <select
+                    id="visit-time"
+                    name="visit-time"
                     value={visitTime}
                     onChange={(e) => setVisitTime(e.target.value)}
                     className="mt-2 w-full rounded-lg border border-black/10 px-4 py-2.5 text-[var(--black)] focus:border-[var(--gold)] focus:outline-none focus:ring-2 focus:ring-[var(--gold)]/20"
                     required
+                    title="Heure de visite"
+                    aria-label="Heure de visite"
                   >
                     <option value="">Sélectionner...</option>
                     <option value="10:00">10:00</option>
@@ -189,9 +201,14 @@ export default function ReservationForm() {
                   </label>
                   <input
                     type="text"
+                    id="full-name"
+                    name="full-name"
                     value={fullName}
                     onChange={(e) => setFullName(e.target.value)}
                     className="mt-2 w-full rounded-lg border border-black/10 px-4 py-2.5 text-[var(--black)] focus:border-[var(--gold)] focus:outline-none focus:ring-2 focus:ring-[var(--gold)]/20"
+                    placeholder="Entrez votre nom complet"
+                    title="Nom complet"
+                    aria-label="Nom complet"
                     required
                   />
                 </div>
@@ -201,9 +218,14 @@ export default function ReservationForm() {
                   </label>
                   <input
                     type="email"
+                    id="email"
+                    name="email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     className="mt-2 w-full rounded-lg border border-black/10 px-4 py-2.5 text-[var(--black)] focus:border-[var(--gold)] focus:outline-none focus:ring-2 focus:ring-[var(--gold)]/20"
+                    placeholder="Entrez votre adresse email"
+                    title="Adresse email"
+                    aria-label="Adresse email"
                     required
                   />
                 </div>
@@ -213,9 +235,14 @@ export default function ReservationForm() {
                   </label>
                   <input
                     type="tel"
+                    id="phone"
+                    name="phone"
                     value={phone}
                     onChange={(e) => setPhone(e.target.value)}
                     className="mt-2 w-full rounded-lg border border-black/10 px-4 py-2.5 text-[var(--black)] focus:border-[var(--gold)] focus:outline-none focus:ring-2 focus:ring-[var(--gold)]/20"
+                    placeholder="Entrez votre numéro de téléphone"
+                    title="Numéro de téléphone"
+                    aria-label="Numéro de téléphone"
                     required
                   />
                 </div>

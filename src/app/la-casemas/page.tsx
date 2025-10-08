@@ -10,7 +10,7 @@ export default function CasemasPage() {
             La CASEMAS
           </h1>
           <p className="text-gray-700">
-            Centre d'Art, de Science, d'Éducation et de Mémoire pour l'Afrique et ses Diasporas
+            Centre d&apos;Art, de Science, d&apos;Éducation et de Mémoire pour l&apos;Afrique et ses Diasporas
           </p>
         </div>
       </main>

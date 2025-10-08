@@ -1,10 +1,10 @@
 import * as React from "react";
-import { motion } from "framer-motion";
+import { motion, HTMLMotionProps } from "framer-motion";
 import { MapPin, Star } from "lucide-react";
 import { cn } from "@/lib/utils"; // Assuming you have a `cn` utility for classnames
 
-// Define the props for the component
-export interface HotelCardProps extends React.HTMLAttributes<HTMLDivElement> {
+// Define the base props
+type HotelCardBaseProps = {
   imageUrl: string;
   imageAlt: string;
   roomType: string;
@@ -12,10 +12,19 @@ export interface HotelCardProps extends React.HTMLAttributes<HTMLDivElement> {
   location: string;
   rating: number;
   reviewCount: number;
-  href?: string; // Optional link for the entire card
-}
+};
 
-const HotelCard = React.forwardRef<HTMLDivElement, HotelCardProps>(
+// Create a discriminated union for polymorphic props using framer-motion's types
+export type HotelCardProps = HotelCardBaseProps &
+  (
+    | ({ href?: undefined } & Omit<HTMLMotionProps<"div">, keyof HotelCardBaseProps>)
+    | ({ href: string } & Omit<HTMLMotionProps<"a">, keyof HotelCardBaseProps>)
+  );
+
+const HotelCard = React.forwardRef<
+  HTMLDivElement | HTMLAnchorElement,
+  HotelCardProps
+>(
   (
     {
       className,
@@ -31,12 +40,12 @@ const HotelCard = React.forwardRef<HTMLDivElement, HotelCardProps>(
     },
     ref
   ) => {
-    // Determine the root component type: 'a' for link, 'div' otherwise
     const Component = href ? motion.a : motion.div;
 
     return (
       <Component
-        ref={ref as any} // Type assertion needed for motion component polymorphism
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        ref={ref as any} // Using `as any` here is a pragmatic choice for complex polymorphic refs with framer-motion
         href={href}
         className={cn(
           "group flex flex-col md:flex-row overflow-hidden rounded-xl border bg-card text-card-foreground shadow-sm transition-all duration-300 ease-in-out hover:shadow-lg",
@@ -45,7 +54,8 @@ const HotelCard = React.forwardRef<HTMLDivElement, HotelCardProps>(
         // Animation variants for framer-motion
         whileHover={{ y: -4 }}
         transition={{ type: "spring", stiffness: 300 }}
-        {...props}
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        {...(props as any)}
       >
         {/* Image Section */}
         <div className="md:w-2/5 w-full h-56 md:h-auto overflow-hidden">
@@ -77,7 +87,7 @@ const HotelCard = React.forwardRef<HTMLDivElement, HotelCardProps>(
           {/* Actions slot */}
           {props.children ? (
             <div className="mt-4 flex items-center justify-end w-full">
-              {props.children}
+              {props.children as React.ReactNode}
             </div>
           ) : null}
         </div>

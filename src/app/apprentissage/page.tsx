@@ -61,7 +61,7 @@ export default function ApprentissagePage() {
             Quiz culturels et jeux interactifs
           </h1>
           <p className="text-gray-700">
-            Testez vos connaissances sur les civilisations, artistes et symboles de l'Afrique noire.
+            Testez vos connaissances sur les civilisations, artistes et symboles de l&apos;Afrique noire.
           </p>
         </div>
 
@@ -225,7 +225,7 @@ export default function ApprentissagePage() {
               <div>
                 <h3 className="text-lg font-bold text-[#1C1C1C]">Niveau Lycée</h3>
                 <p className="text-sm text-gray-600">
-                  Analyse critique et recherches approfondies sur l'art, l'histoire et la philosophie africaine.
+                  Analyse critique et recherches approfondies sur l&apos;art, l&apos;histoire et la philosophie africaine.
                 </p>
               </div>
             </div>
@@ -277,8 +277,8 @@ export default function ApprentissagePage() {
                     <span className="text-3xl">🌸</span>
                   </div>
                   <div>
-                    <h4 className="font-bold text-lg">Œil d'Artiste</h4>
-                    <p className="text-sm text-gray-400">Analysez 20 œuvres d'art</p>
+                    <h4 className="font-bold text-lg">Œil d&apos;Artiste</h4>
+                    <p className="text-sm text-gray-400">Analysez 20 œuvres d&apos;art</p>
                   </div>
                 </div>
               </div>
@@ -330,7 +330,7 @@ export default function ApprentissagePage() {
                     <div className="flex-1">
                       <h4 className="font-bold text-base mb-1">Aïcha Diallo</h4>
                       <p className="text-sm text-gray-600 leading-relaxed">
-                        Une expérience inoubliable ! Les masques traditionnels m'ont transportée.
+                        Une expérience inoubliable ! Les masques traditionnels m&apos;ont transportée.
                       </p>
                     </div>
                   </div>
@@ -342,7 +342,7 @@ export default function ApprentissagePage() {
                     <div className="flex-1">
                       <h4 className="font-bold text-base mb-1">Mamadou Sow</h4>
                       <p className="text-sm text-gray-600 leading-relaxed">
-                        Les quiz sont parfaits pour apprendre en s'amusant. Mes enfants adorent !
+                        Les quiz sont parfaits pour apprendre en s&apos;amusant. Mes enfants adorent !
                       </p>
                     </div>
                   </div>

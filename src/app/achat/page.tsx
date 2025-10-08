@@ -1,11 +1,12 @@
 'use client'
-import React, { useState } from 'react'
+import React, { Suspense, useState } from 'react'
 import { useSearchParams } from 'next/navigation'
 import HeroAchat from '@/components/achat/HeroAchat'
 import CheckoutForm from '@/components/achat/CheckoutForm'
 import OrderSummary from '@/components/achat/OrderSummary'
 
-export default function AchatPage() {
+// Composant qui utilise useSearchParams, enveloppé dans Suspense
+function AchatContent() {
   const searchParams = useSearchParams()
   const [quantity, setQuantity] = useState(1)
 
@@ -14,12 +15,7 @@ export default function AchatPage() {
   const productImage = searchParams.get('image') || ''
 
   return (
-    <div className="min-h-screen bg-[var(--beige)]">
-      {/* Hero Section */}
-      <div className="relative">
-        <HeroAchat />
-      </div>
-
+    <>
       {/* Main Content */}
       <div className="mx-auto max-w-5xl px-4 py-12">
         {/* Header */}
@@ -44,6 +40,30 @@ export default function AchatPage() {
           />
         </div>
       </div>
+    </>
+  )
+}
+
+export default function AchatPage() {
+  return (
+    <div className="min-h-screen bg-[var(--beige)]">
+      {/* Hero Section */}
+      <div className="relative">
+        <HeroAchat />
+      </div>
+
+      {/* Wrap content using useSearchParams in Suspense */}
+      <Suspense fallback={
+        <div className="mx-auto max-w-5xl px-4 py-12">
+          <div className="mb-8 text-center">
+            <h1 className="font-serif text-3xl font-semibold text-[var(--brown)] sm:text-4xl">
+              Chargement...
+            </h1>
+          </div>
+        </div>
+      }>
+        <AchatContent />
+      </Suspense>
     </div>
   )
 }
