@@ -215,6 +215,7 @@ export default function AnimatedHero({
     gsap.set(innerWrappers, { xPercent: -100 });
 
     observerRef.current = Observer.create({
+      target: containerRef.current as Element,
       type: 'wheel,touch,pointer',
       wheelSpeed: -1,
       onDown: () => {
@@ -224,7 +225,7 @@ export default function AnimatedHero({
         if (!animatingRef.current) gotoSection(currentIndexRef.current + 1, 1);
       },
       tolerance: 10,
-      preventDefault: true,
+      preventDefault: false,
     });
 
     gotoSection(0, 1);

@@ -10,14 +10,21 @@ type EventCardProps = {
 
 function EventCard({ title, date, description, image }: EventCardProps) {
   return (
-    <div className="overflow-hidden rounded-xl border border-black/10 bg-[var(--light)] shadow-sm">
-      <img src={image} alt="" className="w-full aspect-[16/9] object-cover" />
-      <div className="space-y-2 p-4">
-        <h4 className="text-base font-semibold text-[var(--black)]">{title}</h4>
-        <p className="text-xs text-[color:rgb(0_0_0_/_0.6)]">{date}</p>
-        <p className="text-sm text-[color:rgb(0_0_0_/_0.7)]">{description}</p>
-        <Link href="/evenements" className="mt-3 inline-flex w-full items-center justify-center rounded-md bg-[var(--gold)] px-4 py-2.5 text-sm font-semibold text-[var(--black)] hover:brightness-95">
+    <div className="group overflow-hidden rounded-2xl border border-black/10 bg-[var(--light)] shadow-sm transition hover:shadow-md">
+      <div className="relative">
+        <img src={image} alt="" className="w-full aspect-[4/3] object-cover" />
+        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-[color:rgb(0_0_0_/_0.35)] to-transparent" />
+      </div>
+      <div className="space-y-3 p-5">
+        <h4 className="font-serif text-lg font-semibold leading-snug text-[var(--brown)]">{title}</h4>
+        <div className="flex items-center gap-2 text-xs text-[color:rgb(0_0_0_/_0.6)]">
+          <ClockIcon className="h-3.5 w-3.5" />
+          <span>{date}</span>
+        </div>
+        <p className="text-sm leading-relaxed text-[color:rgb(0_0_0_/_0.75)] line-clamp-3">{description}</p>
+        <Link href="/evenements" className="mt-1 inline-flex w-full items-center justify-center gap-2 rounded-md bg-[var(--gold)] px-4 py-2.5 text-sm font-semibold text-[var(--black)] ring-offset-2 transition hover:brightness-95 focus:outline-none focus:ring-2 focus:ring-[color:rgb(212_175_55_/_0.5)]">
           Réserver vos places
+          <ArrowRightIcon className="h-4 w-4" />
         </Link>
       </div>
     </div>
@@ -60,6 +67,22 @@ export default function UpcomingEvents() {
         ))}
       </div>
     </section>
+  )
+}
+
+function ClockIcon({ className }: { className?: string }) {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className={className}>
+      <path d="M12 2a10 10 0 100 20 10 10 0 000-20zm1 11h-4a1 1 0 110-2h3V7a1 1 0 112 0v5a1 1 0 01-1 1z" />
+    </svg>
+  )
+}
+
+function ArrowRightIcon({ className }: { className?: string }) {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className={className}>
+      <path d="M13.293 5.293a1 1 0 011.414 0l5 5a1 1 0 010 1.414l-5 5a1 1 0 11-1.414-1.414L16.586 12H4a1 1 0 110-2h12.586l-3.293-3.293a1 1 0 010-1.414z" />
+    </svg>
   )
 }
 
