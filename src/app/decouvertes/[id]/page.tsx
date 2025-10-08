@@ -3,6 +3,8 @@
 import { use, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import Script from 'next/script'; // Import Next.js Script component
+import ModelViewer from '@/components/ModelViewer'; // Import the new component
 // import Navbar from '@/components/layouts/Navbar';
 // import Footer from '@/components/layouts/Footer';
 
@@ -23,7 +25,7 @@ export default function OeuvreDetailPage({ params }: { params: Promise<{ id: str
     materiau: "Bois d'ébène, pigments naturels",
     dimensions: "45 x 28 x 15 cm",
     images: [
-      "/images/exposition sculture.png",
+      "/images/sculture -mcn drive.jpg",
       "/images/exposition sculture 2.png",
       "/images/collection sculture 1.png",
       "/images/collection sculture 2.png"
@@ -35,6 +37,7 @@ export default function OeuvreDetailPage({ params }: { params: Promise<{ id: str
     audioGuide: "Audio-guide (5:32)",
     documentaire: "Documentaire (12:45)",
     modele3D: true,
+    modele3DPath: "/3D/maske -mcn drive.glb", // Path to the 3D model
     contexte: [
       "Utilisé lors des cérémonies funéraires Dama",
       "Symbole de communication avec les ancêtres",
@@ -42,6 +45,15 @@ export default function OeuvreDetailPage({ params }: { params: Promise<{ id: str
     ]
   };
 
+  const handleTabClick = (tab: '3D' | 'Photos' | 'Video') => {
+    if (tab === '3D') {
+      // Toggle between 3D and Photos view
+      setActiveTab(activeTab === '3D' ? 'Photos' : '3D');
+    } else {
+      setActiveTab(tab);
+    }
+  };
+  
   const oeuvresSimilaires = [
     {
       id: 1,
@@ -81,12 +93,16 @@ export default function OeuvreDetailPage({ params }: { params: Promise<{ id: str
               {/* Image principale */}
               <div className="bg-white rounded-2xl overflow-hidden shadow-xl relative">
                 <div className="relative aspect-square">
-                  <Image
-                    src={oeuvre.images[selectedImage]}
-                    alt={oeuvre.title}
-                    fill
-                    className="object-cover"
-                  />
+                  {activeTab === '3D' && oeuvre.modele3DPath ? (
+                    <ModelViewer modelPath={oeuvre.modele3DPath} />
+                  ) : (
+                    <Image
+                      src={oeuvre.images[selectedImage]}
+                      alt={oeuvre.title}
+                      fill
+                      className="object-cover"
+                    />
+                  )}
                   
                   {/* Boutons d'action */}
                   <div className="absolute top-4 right-4 flex gap-2">
@@ -101,12 +117,13 @@ export default function OeuvreDetailPage({ params }: { params: Promise<{ id: str
                     </button>
                   </div>
 
-                  {/* Onglets */}
+                  {/* Onglets */} 
+                  {/* lobject 3d a integrer lorsque on touche le button 3d */}
                   <div className="absolute bottom-4 left-4 flex gap-2">
                     {(['3D', 'Photos', 'Video'] as const).map((tab) => (
                       <button
                         key={tab}
-                        onClick={() => setActiveTab(tab)}
+                        onClick={() => handleTabClick(tab)}
                         className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
                           activeTab === tab
                             ? 'bg-white text-[#1C1C1C]'
@@ -212,6 +229,11 @@ export default function OeuvreDetailPage({ params }: { params: Promise<{ id: str
                     </div>
                     <span className="text-[#D4AF37] group-hover:translate-x-1 transition-transform">↗</span>
                   </button>
+
+                  {/* ElevenLabs Convai Widget */}
+                  <div className="mt-4">
+                    <elevenlabs-convai agent-id="agent_6401k72h8jh3ekatzfqnqpg0h5wz"></elevenlabs-convai>
+                  </div>
                 </div>
               </div>
 
@@ -268,6 +290,7 @@ export default function OeuvreDetailPage({ params }: { params: Promise<{ id: str
       </main>
 
       {/* <Footer /> */}
+      <Script src="https://unpkg.com/@elevenlabs/convai-widget-embed" strategy="lazyOnload" />
     </div>
   );
 }

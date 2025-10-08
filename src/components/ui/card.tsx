@@ -67,9 +67,9 @@ const HotelCard = React.forwardRef<
         </div>
 
         {/* Content Section */}
-        <div className="flex flex-col justify-center p-6 md:w-3/5 space-y-2">
+        <div className="flex flex-col justify-center p-4 md:p-6 md:w-3/5 space-y-2">
           <span className="text-sm text-muted-foreground">{roomType}</span>
-          <h3 className="text-2xl font-bold tracking-tight">{hotelName}</h3>
+          <h3 className="text-xl md:text-2xl font-bold tracking-tight">{hotelName}</h3>
           
           {/* Location */}
           <div className="flex items-center text-muted-foreground">

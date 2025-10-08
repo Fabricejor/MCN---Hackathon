@@ -52,12 +52,12 @@ export default function ApprentissagePage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#F5F1E6]">
+    <div className="min-h-screen bg-[#F5F1E6] overflow-x-hidden">
 
       {/* Section Quiz */}
-      <section className="py-16 px-8">
-        <div className="max-w-4xl mx-auto text-center mb-12">
-          <h1 className="text-4xl font-bold mb-4 text-[#1C1C1C]" style={{ fontFamily: 'Playfair Display, serif' }}>
+      <section className="py-12 px-4 sm:px-8">
+        <div className="max-w-4xl mx-auto text-center mb-8 sm:mb-12">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4 text-[#1C1C1C]" style={{ fontFamily: 'Playfair Display, serif' }}>
             Quiz culturels et jeux interactifs
           </h1>
           <p className="text-gray-700">
@@ -65,14 +65,14 @@ export default function ApprentissagePage() {
           </p>
         </div>
 
-        <div className="max-w-3xl mx-auto bg-white rounded-2xl shadow-lg p-8 relative">
-          <div className="absolute top-6 right-6">
-            <span className="bg-[#5C3A21] text-white px-4 py-1 rounded-full text-sm">
+        <div className="max-w-3xl mx-auto bg-white rounded-2xl shadow-lg p-6 sm:p-8 relative">
+          <div className="absolute top-4 sm:top-6 right-4 sm:right-6">
+            <span className="bg-[#5C3A21] text-white px-3 sm:px-4 py-1 rounded-full text-xs sm:text-sm">
               Score: {score}/10
             </span>
           </div>
 
-          <h3 className="text-xl font-semibold mb-6 text-[#1C1C1C] pr-24">
+          <h3 className="text-lg sm:text-xl font-semibold mb-6 text-[#1C1C1C] sm:pr-24">
             {question.text}
           </h3>
 
@@ -99,7 +99,7 @@ export default function ApprentissagePage() {
             ))}
           </div>
 
-          <div className="flex justify-between items-center">
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-between items-stretch sm:items-center">
             <button
               onClick={handleValidate}
               disabled={selectedAnswer === null}
@@ -175,8 +175,8 @@ export default function ApprentissagePage() {
 
         <div className="max-w-4xl mx-auto space-y-4">
           {/* Niveau Primaire */}
-          <div className="bg-white rounded-xl p-6 flex items-center justify-between shadow-md">
-            <div className="flex items-center gap-4">
+          <div className="bg-white rounded-xl p-6 flex flex-col md:flex-row items-center justify-between gap-4 shadow-md">
+            <div className="flex items-center gap-4 w-full">
               <div className="w-14 h-14 bg-[#D4AF37] rounded-full flex items-center justify-center flex-shrink-0">
                 <svg className="w-7 h-7 text-[#1C1C1C]" fill="currentColor" viewBox="0 0 20 20">
                   <path d="M10.394 2.08a1 1 0 00-.788 0l-7 3a1 1 0 000 1.84L5.25 8.051a.999.999 0 01.356-.257l4-1.714a1 1 0 11.788 1.838L7.667 9.088l1.94.831a1 1 0 00.787 0l7-3a1 1 0 000-1.838l-7-3zM3.31 9.397L5 10.12v4.102a8.969 8.969 0 00-1.05-.174 1 1 0 01-.89-.89 11.115 11.115 0 01.25-3.762zM9.3 16.573A9.026 9.026 0 007 14.935v-3.957l1.818.78a3 3 0 002.364 0l5.508-2.361a11.026 11.026 0 01.25 3.762 1 1 0 01-.89.89 8.968 8.968 0 00-5.35 2.524 1 1 0 01-1.4 0zM6 18a1 1 0 001-1v-2.065a8.935 8.935 0 00-2-.712V17a1 1 0 001 1z"/>
@@ -184,19 +184,19 @@ export default function ApprentissagePage() {
               </div>
               <div>
                 <h3 className="text-lg font-bold text-[#1C1C1C]">Niveau Primaire</h3>
-                <p className="text-sm text-gray-600">
+                <p className="text-sm text-gray-600 mt-1">
                   Découverte ludique des cultures africaines à travers des jeux et activités adaptées aux plus jeunes.
                 </p>
               </div>
             </div>
-            <button className="bg-[#D4AF37] text-[#1C1C1C] px-6 py-2 rounded-lg font-medium hover:bg-[#c5a033] transition-colors whitespace-nowrap">
+            <button className="bg-[#D4AF37] text-[#1C1C1C] px-6 py-2 rounded-lg font-medium hover:bg-[#c5a033] transition-colors whitespace-nowrap w-full mt-4 md:w-auto md:mt-0">
               Télécharger la fiche pédagogique
             </button>
           </div>
 
           {/* Niveau Collège */}
-          <div className="bg-white rounded-xl p-6 flex items-center justify-between shadow-md">
-            <div className="flex items-center gap-4">
+          <div className="bg-white rounded-xl p-6 flex flex-col md:flex-row items-center justify-between gap-4 shadow-md">
+            <div className="flex items-center gap-4 w-full">
               <div className="w-14 h-14 bg-[#D4AF37] rounded-full flex items-center justify-center flex-shrink-0">
                 <svg className="w-7 h-7 text-[#1C1C1C]" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M6 2a2 2 0 00-2 2v12a2 2 0 002 2h8a2 2 0 002-2V7.414A2 2 0 0015.414 6L12 2.586A2 2 0 0010.586 2H6zm5 6a1 1 0 10-2 0v3.586l-1.293-1.293a1 1 0 10-1.414 1.414l3 3a1 1 0 001.414 0l3-3a1 1 0 00-1.414-1.414L11 11.586V8z" clipRule="evenodd"/>
@@ -204,19 +204,19 @@ export default function ApprentissagePage() {
               </div>
               <div>
                 <h3 className="text-lg font-bold text-[#1C1C1C]">Niveau Collège</h3>
-                <p className="text-sm text-gray-600">
+                <p className="text-sm text-gray-600 mt-1">
                   Approfondissement historique et culturel avec des supports interactifs et des projets de groupe.
                 </p>
               </div>
             </div>
-            <button className="bg-[#D4AF37] text-[#1C1C1C] px-6 py-2 rounded-lg font-medium hover:bg-[#c5a033] transition-colors whitespace-nowrap">
+            <button className="bg-[#D4AF37] text-[#1C1C1C] px-6 py-2 rounded-lg font-medium hover:bg-[#c5a033] transition-colors whitespace-nowrap w-full mt-4 md:w-auto md:mt-0">
               Télécharger la fiche pédagogique
             </button>
           </div>
 
           {/* Niveau Lycée */}
-          <div className="bg-white rounded-xl p-6 flex items-center justify-between shadow-md">
-            <div className="flex items-center gap-4">
+          <div className="bg-white rounded-xl p-6 flex flex-col md:flex-row items-center justify-between gap-4 shadow-md">
+            <div className="flex items-center gap-4 w-full">
               <div className="w-14 h-14 bg-[#D4AF37] rounded-full flex items-center justify-center flex-shrink-0">
                 <svg className="w-7 h-7 text-[#1C1C1C]" fill="currentColor" viewBox="0 0 20 20">
                   <path d="M9 4.804A7.968 7.968 0 005.5 4c-1.255 0-2.443.29-3.5.804v10A7.969 7.969 0 015.5 14c1.669 0 3.218.51 4.5 1.385A7.962 7.962 0 0114.5 14c1.255 0 2.443.29 3.5.804v-10A7.968 7.968 0 0014.5 4c-1.255 0-2.443.29-3.5.804V12a1 1 0 11-2 0V4.804z"/>
@@ -224,12 +224,12 @@ export default function ApprentissagePage() {
               </div>
               <div>
                 <h3 className="text-lg font-bold text-[#1C1C1C]">Niveau Lycée</h3>
-                <p className="text-sm text-gray-600">
+                <p className="text-sm text-gray-600 mt-1">
                   Analyse critique et recherches approfondies sur l&apos;art, l&apos;histoire et la philosophie africaine.
                 </p>
               </div>
             </div>
-            <button className="bg-[#D4AF37] text-[#1C1C1C] px-6 py-2 rounded-lg font-medium hover:bg-[#c5a033] transition-colors whitespace-nowrap">
+            <button className="bg-[#D4AF37] text-[#1C1C1C] px-6 py-2 rounded-lg font-medium hover:bg-[#c5a033] transition-colors whitespace-nowrap w-full mt-4 md:w-auto md:mt-0">
               Télécharger la fiche pédagogique
             </button>
           </div>

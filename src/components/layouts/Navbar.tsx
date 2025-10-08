@@ -19,7 +19,7 @@ export default function Navbar() {
         <div className="flex items-center justify-between px-6 py-2">
           <div className="flex-shrink-0">
             <Link href="/">
-              <Image src="/images/Logo_MCN_Final_V2_2_1.jpg" alt="MCN Logo" width={40} height={40} />
+              <Image src="/images/Logo_MCN_Final_V2_2_1.png" alt="MCN Logo" width={40} height={40} />
             </Link>
           </div>
           <div className="hidden md:flex items-center gap-8">

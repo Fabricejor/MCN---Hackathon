@@ -33,6 +33,9 @@ const playfair = Playfair_Display({
 export const metadata: Metadata = {
   title: "MCN - Musée des Civilisations Noires",
   description: "Découvrez les trésors culturels et artistiques de l'Afrique au Musée des Civilisations Noires",
+  icons: {
+    icon: '/favicon.png',
+  },
 };
 
 export default function RootLayout({

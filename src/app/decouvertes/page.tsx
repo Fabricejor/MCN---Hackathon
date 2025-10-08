@@ -56,52 +56,52 @@ export default function DecouvertesPage() {
     : expositions.filter(expo => expo.category === activeFilter);
 
   return (
-    <div className="min-h-screen bg-[#F5F1E6]">
+    <div className="min-h-screen bg-[#F5F1E6] overflow-x-hidden">
 
       {/* Section Visite Augmentée (Hero) */}
       <HeroGeometric badge="Musée des Cultures" title1="Découvertes" title2="" />
 
       {/* Visite Augmentée - Bloc fonctionnalités + image */}
-      <section className="py-16 px-8">
+      <section className="py-12 px-4 sm:px-8">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-4xl font-bold text-center mb-12 text-[#1C1C1C]" style={{ fontFamily: 'Playfair Display, serif' }}>
+          <h2 className="text-3xl sm:text-4xl font-bold text-center mb-8 sm:mb-12 text-[#1C1C1C]" style={{ fontFamily: 'Playfair Display, serif' }}>
             Visite Augmentée
           </h2>
 
-          <div className="bg-white rounded-3xl shadow-xl overflow-hidden p-8">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          <div className="bg-white rounded-3xl shadow-xl overflow-hidden p-6 sm:p-8">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12">
               {/* Colonne gauche - liste fonctionnalités */}
-              <div className="space-y-8">
-                <h3 className="text-2xl font-bold text-[#1C1C1C]" style={{ fontFamily: 'Playfair Display, serif' }}>
+              <div className="space-y-6 sm:space-y-8">
+                <h3 className="text-xl sm:text-2xl font-bold text-[#1C1C1C]" style={{ fontFamily: 'Playfair Display, serif' }}>
                   Explorez le musée<br />autrement
                 </h3>
 
                 <div className="space-y-4">
                   <div className="flex items-center gap-4">
                     <span className="text-2xl text-[#D4AF37]">🧭</span>
-                    <span className="text-gray-800 text-lg">Parcours thématiques guidés</span>
+                    <span className="text-gray-800 text-base sm:text-lg">Parcours thématiques guidés</span>
                   </div>
                   <div className="flex items-center gap-4">
                     <span className="text-2xl text-[#D4AF37]">📷</span>
-                    <span className="text-gray-800 text-lg">Réalité augmentée interactive</span>
+                    <span className="text-gray-800 text-base sm:text-lg">Réalité augmentée interactive</span>
                   </div>
                   <div className="flex items-center gap-4">
                     <span className="text-2xl text-[#D4AF37]">🗺️</span>
-                    <span className="text-gray-800 text-lg">Navigation GPS indoor</span>
+                    <span className="text-gray-800 text-base sm:text-lg">Navigation GPS indoor</span>
                   </div>
                   <div className="flex items-center gap-4">
                     <span className="text-2xl text-[#D4AF37]">👓</span>
-                    <span className="text-gray-800 text-lg">Expérience 360° à distance</span>
+                    <span className="text-gray-800 text-base sm:text-lg">Expérience 360° à distance</span>
                   </div>
                 </div>
 
-                <button className="bg-[#D4AF37] text-[#1C1C1C] py-3 px-8 rounded-full font-semibold hover:bg-[#c5a033] transition-colors text-lg">
+                <button className="bg-[#D4AF37] text-[#1C1C1C] py-2.5 sm:py-3 px-6 sm:px-8 rounded-full font-semibold hover:bg-[#c5a033] transition-colors text-base sm:text-lg w-full sm:w-auto">
                   Commencer la visite
                 </button>
               </div>
 
               {/* Colonne droite - image carte */}
-              <div className="bg-[#1C1C1C] rounded-2xl p-8 flex items-center justify-center min-h-[420px] relative overflow-hidden">
+              <div className="bg-[#1C1C1C] rounded-2xl p-4 sm:p-8 flex items-center justify-center min-h-[280px] sm:min-h-[420px] relative overflow-hidden">
                 <div className="relative w-full h-full flex items-center justify-center">
                   <Image
                     src="/images/visite augmente map.png"
@@ -118,20 +118,20 @@ export default function DecouvertesPage() {
       </section>
 
       {/* Section Expositions */}
-      <section className="py-16 px-8 bg-white">
+      <section className="py-12 px-4 sm:px-8 bg-white">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-8 text-[#1C1C1C]" style={{ fontFamily: 'Playfair Display, serif' }}>
+          <h2 className="text-2xl sm:text-3xl font-bold text-center mb-8 text-[#1C1C1C]" style={{ fontFamily: 'Playfair Display, serif' }}>
             Expositions
           </h2>
 
           {/* Filtres */}
           <div className="flex justify-center mb-12">
-            <div className="inline-flex bg-[#1C1C1C] rounded-full p-1 gap-1">
+            <div className="flex flex-wrap justify-center bg-[#1C1C1C] rounded-full p-1 gap-1">
               {(['Toutes', 'Peintures', 'Sculptures', 'Textiles', 'Contemporain'] as FilterType[]).map((filter) => (
                 <button
                   key={filter}
                   onClick={() => setActiveFilter(filter)}
-                  className={`px-6 py-2 rounded-full font-medium transition-colors ${
+                  className={`px-4 py-1.5 sm:px-6 sm:py-2 rounded-full font-medium transition-colors text-sm sm:text-base ${
                     activeFilter === filter
                       ? 'bg-[#D4AF37] text-[#1C1C1C]'
                       : 'text-white hover:text-[#D4AF37]'
@@ -169,13 +169,13 @@ export default function DecouvertesPage() {
       </section>
 
       {/* Section Parcours Thématiques */}
-      <section className="py-16 px-8 bg-white">
+      <section className="py-12 px-4 sm:px-8 bg-white">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-4xl font-bold text-center mb-12 text-[#D4AF37]" style={{ fontFamily: 'Playfair Display, serif' }}>
+          <h2 className="text-3xl sm:text-4xl font-bold text-center mb-8 sm:mb-12 text-[#D4AF37]" style={{ fontFamily: 'Playfair Display, serif' }}>
             Parcours Thématiques
           </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
             <FeatureCard
               icon={<span className="text-3xl">🏛️</span>}
               title="L'Afrique des Royaumes"
