@@ -35,7 +35,6 @@ export default function AnimatedHero({
   className = '',
 }: AnimatedSectionsProps) {
   const containerRef = useRef<HTMLDivElement>(null);
-  const observerRef = useRef<any>(null);
   const timelineRef = useRef<gsap.core.Timeline | null>(null);
   // Removed SplitText usage to avoid optional plugin dependency
   const currentIndexRef = useRef<number>(-1);
@@ -126,37 +125,50 @@ export default function AnimatedHero({
 
     const outerWrappers = outerRefs.current as Element[];
     const innerWrappers = innerRefs.current as Element[];
+    const container = containerRef.current;
 
     gsap.set(outerWrappers, { xPercent: 100 });
     gsap.set(innerWrappers, { xPercent: -100 });
 
-    observerRef.current = Observer.create({
-      target: containerRef.current as Element,
-      type: 'wheel,touch,pointer',
-      wheelSpeed: -1,
-      onDown: () => {
-        if (!animatingRef.current) {
-          // Stop auto-play when user interacts
-          if (autoPlayTimerRef.current) {
-            clearTimeout(autoPlayTimerRef.current);
-            autoPlayTimerRef.current = null;
-          }
-          gotoSection(currentIndexRef.current + 1, 1);
+    // Use native event listeners instead of Observer plugin
+    let lastWheelTime = 0;
+    const handleWheel = (e: WheelEvent) => {
+      const now = Date.now();
+      if (now - lastWheelTime < 1000) return; // Throttle wheel events
+      
+      if (!animatingRef.current && Math.abs(e.deltaY) > 10) {
+        lastWheelTime = now;
+        // Stop auto-play when user interacts
+        if (autoPlayTimerRef.current) {
+          clearTimeout(autoPlayTimerRef.current);
+          autoPlayTimerRef.current = null;
         }
-      },
-      onUp: () => {
-        if (!animatingRef.current) {
-          // Stop auto-play when user interacts
-          if (autoPlayTimerRef.current) {
-            clearTimeout(autoPlayTimerRef.current);
-            autoPlayTimerRef.current = null;
-          }
-          gotoSection(currentIndexRef.current + 1, 1);
+        gotoSection(currentIndexRef.current + 1, 1);
+      }
+    };
+
+    let touchStartY = 0;
+    const handleTouchStart = (e: TouchEvent) => {
+      touchStartY = e.touches[0].clientY;
+    };
+
+    const handleTouchEnd = (e: TouchEvent) => {
+      const touchEndY = e.changedTouches[0].clientY;
+      const diff = touchStartY - touchEndY;
+      
+      if (!animatingRef.current && Math.abs(diff) > 50) {
+        // Stop auto-play when user interacts
+        if (autoPlayTimerRef.current) {
+          clearTimeout(autoPlayTimerRef.current);
+          autoPlayTimerRef.current = null;
         }
-      },
-      tolerance: 10,
-      preventDefault: false,
-    });
+        gotoSection(currentIndexRef.current + 1, 1);
+      }
+    };
+
+    container.addEventListener('wheel', handleWheel, { passive: true });
+    container.addEventListener('touchstart', handleTouchStart, { passive: true });
+    container.addEventListener('touchend', handleTouchEnd, { passive: true });
 
     // Show first image
     gotoSection(0, 1);
@@ -182,10 +194,11 @@ export default function AnimatedHero({
         autoPlayTimerRef.current = null;
       }
       
-      if (observerRef.current) {
-        observerRef.current.kill();
-        observerRef.current = null;
-      }
+      // Clean up event listeners
+      container.removeEventListener('wheel', handleWheel);
+      container.removeEventListener('touchstart', handleTouchStart);
+      container.removeEventListener('touchend', handleTouchEnd);
+      
       if (timelineRef.current) {
         timelineRef.current.kill();
         timelineRef.current = null;

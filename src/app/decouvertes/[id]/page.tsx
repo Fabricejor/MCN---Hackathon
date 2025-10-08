@@ -1,18 +1,21 @@
 'use client';
 
-import { useState } from 'react';
+import { use, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import Navbar from '@/components/layouts/Navbar';
 import Footer from '@/components/layouts/Footer';
 
-export default function OeuvreDetailPage({ params }: { params: { id: string } }) {
+export default function OeuvreDetailPage({ params }: { params: Promise<{ id: string }> }) {
   const [activeTab, setActiveTab] = useState<'3D' | 'Photos' | 'Video'>('Photos');
   const [selectedImage, setSelectedImage] = useState(0);
+  
+  // Unwrap the params Promise using React.use()
+  const { id } = use(params);
 
   // Données simulées de l'œuvre
   const oeuvre = {
-    id: params.id,
+    id: id,
     title: "Masque Rituel Dogon",
     epoque: "XVIe siècle",
     origine: "Mali, Plateau de Bandiagara",
@@ -68,7 +71,7 @@ export default function OeuvreDetailPage({ params }: { params: { id: string } })
 
   return (
     <div className="min-h-screen bg-[#F5F1E6]">
-      <Navbar />
+      {/* <Navbar /> */}
 
       <main className="py-12 px-8">
         <div className="max-w-7xl mx-auto">
@@ -264,7 +267,7 @@ export default function OeuvreDetailPage({ params }: { params: { id: string } })
         </div>
       </main>
 
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }
