@@ -3,8 +3,6 @@
 import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import Navbar from '@/components/layouts/Navbar';
-import Footer from '@/components/layouts/Footer';
 import { HeroGeometric } from '@/components/ui/shape-landing-hero';
 import { HotelCard } from '@/components/ui/card';
 import { FeatureCard } from '@/components/ui/feature-card';
@@ -59,10 +57,65 @@ export default function DecouvertesPage() {
 
   return (
     <div className="min-h-screen bg-[#F5F1E6]">
-      <Navbar />
 
       {/* Section Visite Augmentée (Hero) */}
       <HeroGeometric badge="Musée des Cultures" title1="Découvertes" title2="" />
+
+      {/* Visite Augmentée - Bloc fonctionnalités + image */}
+      <section className="py-16 px-8">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-4xl font-bold text-center mb-12 text-[#1C1C1C]" style={{ fontFamily: 'Playfair Display, serif' }}>
+            Visite Augmentée
+          </h2>
+
+          <div className="bg-white rounded-3xl shadow-xl overflow-hidden p-8">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+              {/* Colonne gauche - liste fonctionnalités */}
+              <div className="space-y-8">
+                <h3 className="text-2xl font-bold text-[#1C1C1C]" style={{ fontFamily: 'Playfair Display, serif' }}>
+                  Explorez le musée<br />autrement
+                </h3>
+
+                <div className="space-y-4">
+                  <div className="flex items-center gap-4">
+                    <span className="text-2xl text-[#D4AF37]">🧭</span>
+                    <span className="text-gray-800 text-lg">Parcours thématiques guidés</span>
+                  </div>
+                  <div className="flex items-center gap-4">
+                    <span className="text-2xl text-[#D4AF37]">📷</span>
+                    <span className="text-gray-800 text-lg">Réalité augmentée interactive</span>
+                  </div>
+                  <div className="flex items-center gap-4">
+                    <span className="text-2xl text-[#D4AF37]">🗺️</span>
+                    <span className="text-gray-800 text-lg">Navigation GPS indoor</span>
+                  </div>
+                  <div className="flex items-center gap-4">
+                    <span className="text-2xl text-[#D4AF37]">👓</span>
+                    <span className="text-gray-800 text-lg">Expérience 360° à distance</span>
+                  </div>
+                </div>
+
+                <button className="bg-[#D4AF37] text-[#1C1C1C] py-3 px-8 rounded-full font-semibold hover:bg-[#c5a033] transition-colors text-lg">
+                  Commencer la visite
+                </button>
+              </div>
+
+              {/* Colonne droite - image carte */}
+              <div className="bg-[#1C1C1C] rounded-2xl p-8 flex items-center justify-center min-h-[420px] relative overflow-hidden">
+                <div className="relative w-full h-full flex items-center justify-center">
+                  <Image
+                    src="/images/visite augmente map.png"
+                    alt="Carte interactive du musée"
+                    width={900}
+                    height={540}
+                    className="object-contain"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* Section Expositions */}
       <section className="py-16 px-8 bg-white">
@@ -116,7 +169,7 @@ export default function DecouvertesPage() {
       </section>
 
       {/* Section Parcours Thématiques */}
-      <section className="py-16 px-8 bg-[#6B4423]">
+      <section className="py-16 px-8 bg-white">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-4xl font-bold text-center mb-12 text-[#D4AF37]" style={{ fontFamily: 'Playfair Display, serif' }}>
             Parcours Thématiques
@@ -147,7 +200,6 @@ export default function DecouvertesPage() {
         </div>
       </section>
 
-      <Footer />
     </div>
   );
 }

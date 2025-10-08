@@ -1,8 +1,6 @@
 'use client';
 
 import { useState } from 'react';
-import Navbar from '@/components/layouts/Navbar';
-import Footer from '@/components/layouts/Footer';
 
 export default function ApprentissagePage() {
   const [selectedAnswer, setSelectedAnswer] = useState<number | null>(null);
@@ -55,7 +53,6 @@ export default function ApprentissagePage() {
 
   return (
     <div className="min-h-screen bg-[#F5F1E6]">
-      <Navbar />
 
       {/* Section Quiz */}
       <section className="py-16 px-8">
@@ -356,7 +353,6 @@ export default function ApprentissagePage() {
         </div>
       </section>
 
-      <Footer />
     </div>
   );
 }
