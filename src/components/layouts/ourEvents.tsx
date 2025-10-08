@@ -14,7 +14,7 @@ const events = [
     date: '22 Mars 2024',
     title: 'Festival des Traditions',
     description: 'Célébrez la richesse des traditions africaines avec des spectacles et des démonstrations.',
-    image: '/images/event 2.png',
+    image: '/images/event 2 .png',
   },
   {
     date: '5 Avril 2024',
@@ -93,8 +93,7 @@ export default function OurEvents() {
         <div className="relative">
           <div
             ref={scrollRef}
-            className="flex overflow-x-auto snap-x snap-mandatory gap-8 pb-8"
-            style={{ scrollbarWidth: 'none', '-ms-overflow-style': 'none' }}
+            className="flex  snap-x snap-mandatory gap-8 pb-8 scrollbar-hide overflow-x-hidden"
           >
             {events.map((event, index) => (
               <div key={index} className="snap-start flex-shrink-0 w-full md:w-[calc((100%-64px)/3)]">
