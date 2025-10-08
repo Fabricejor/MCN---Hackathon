@@ -284,7 +284,7 @@ export default function OeuvreDetailPage({ params }: { params: Promise<{ id: str
       </main>
 
       {/* <Footer /> */}
-      <elevenlabs-convai agent-id="agent_6401k72h8jh3ekatzfqnqpg0h5wz"></elevenlabs-convai>
+      <div dangerouslySetInnerHTML={{ __html: '<elevenlabs-convai agent-id="agent_6401k72h8jh3ekatzfqnqpg0h5wz"></elevenlabs-convai>' }} />
       <Script src="https://unpkg.com/@elevenlabs/convai-widget-embed" async />
     </div>
   );
