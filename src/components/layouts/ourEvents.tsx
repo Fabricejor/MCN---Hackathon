@@ -14,7 +14,7 @@ const events = [
     date: '22 Mars 2024',
     title: 'Festival des Traditions',
     description: 'Célébrez la richesse des traditions africaines avec des spectacles et des démonstrations.',
-    image: '/images/event 2 .png',
+    image: '/images/event 2.png',
   },
   {
     date: '5 Avril 2024',

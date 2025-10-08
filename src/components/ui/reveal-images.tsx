@@ -12,14 +12,15 @@ export interface RevealImageListItemProps {
 }
 
 export function RevealImageListItem({ text, images, textClassName }: RevealImageListItemProps) {
+  // Mobile: h-32 w-28. Desktop: h-52 w-48.
   // Ajustez les valeurs de 'h' (hauteur) et 'w' (largeur) ici pour changer la taille de la zone des images.
-  // Pousse l'image à droite en ajoutant une translation sur l'axe X lors du hover
-  const container = "absolute right-0 -top-8 z-40 h-52 w-48 translate-x-12 group-hover:translate-x-24 transition-transform duration-500";
+  const container = "absolute right-0 -top-8 z-40 h-32 w-28 md:h-52 md:w-48 translate-x-12 group-hover:translate-x-16 md:group-hover:translate-x-24 transition-transform duration-500";
   
-  // Ajustez les valeurs de 'w' et 'h' dans `group-hover:w-full group-hover:h-full w-48 h-48`
+  // Mobile: w-28 h-28. Desktop: w-48 h-48.
+  // Ajustez les valeurs de 'w' et 'h' dans `w-28 h-28 md:w-48 md:h-48`
   // pour contrôler la taille finale de l'image lorsqu'elle apparaît.
   const effect =
-    "relative duration-500 delay-100 shadow-none group-hover:shadow-xl scale-0 group-hover:scale-100 opacity-0 group-hover:opacity-100 group-hover:w-full group-hover:h-full w-48 h-48 overflow-hidden transition-all rounded-md";
+    "relative duration-500 delay-100 shadow-none group-hover:shadow-xl scale-0 group-hover:scale-100 opacity-0 group-hover:opacity-100 group-hover:w-full group-hover:h-full w-28 h-28 md:w-48 md:h-48 overflow-hidden transition-all rounded-md";
 
   return (
     <div className="group relative h-fit w-fit overflow-visible py-4">

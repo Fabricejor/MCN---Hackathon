@@ -16,13 +16,11 @@ const catalogueItems = [
 
 export default function OurCatalogue() {
   return (
-    <div className="bg-[var(--brown)] py-20 px-6">
-      <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-24 items-center">
-        <div className="relative w-full h-[600px] rounded-lg overflow-hidden">
-          <Image src="/images/visites 1.png" alt="Visites au musée" layout="fill" objectFit="cover" />
-        </div>
-        <div>
-          <h2 className="text-4xl font-bold text-[var(--gold)] mb-8" style={{ fontFamily: "'Playfair Display', serif" }}>
+    <div className="bg-[var(--brown)] py-20 px-6 overflow-x-hidden">
+      <div className="max-w-7xl mx-auto flex flex-col md:flex-row gap-16 md:gap-24 items-center">
+        {/* Text Section - Appears first on mobile */}
+        <div className="w-full md:w-1/2 order-1 md:order-2">
+          <h2 className="text-3xl md:text-4xl font-bold text-[var(--gold)] mb-8 text-center md:text-left" style={{ fontFamily: "'Playfair Display', serif" }}>
             Ce qui est visible au musée
           </h2>
           <div className="space-y-4">
@@ -35,11 +33,15 @@ export default function OurCatalogue() {
                     { src: item.image, alt: item.text },
                     { src: item.image, alt: item.text }
                   ]}
-                  textClassName="text-3xl text-[var(--gold)] font-light font-merriweather"
+                  textClassName="text-2xl md:text-3xl text-[var(--gold)] font-light font-merriweather"
                 />
               </div>
             ))}
           </div>
+        </div>
+        {/* Image Section - Appears second on mobile */}
+        <div className="relative w-full h-[400px] md:h-[600px] rounded-lg overflow-hidden order-2 md:order-1">
+          <Image src="/images/visites 1.png" alt="Visites au musée" layout="fill" objectFit="cover" />
         </div>
       </div>
     </div>

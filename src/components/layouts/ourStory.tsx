@@ -15,10 +15,10 @@ const images = [
 
 export default function OurStory() {
   return (
-    <div className="bg-[var(--light)] py-20">
+    <div className="bg-[var(--light)] py-20 overflow-x-hidden">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="grid md:grid-cols-2 gap-16 items-center">
-          <div>
+        <div className="flex flex-col md:flex-row gap-16 items-center">
+          <div className="w-full md:w-1/2">
             <h2 className="text-5xl font-bold text-black mb-6" style={{ fontFamily: "'Playfair Display', serif" }}>
               Notre Histoire
             </h2>
@@ -29,7 +29,7 @@ export default function OurStory() {
               Notre mission est de valoriser l'héritage africain sous toutes ses formes, de l'art traditionnel aux expressions contemporaines, en offrant un espace de dialogue interculturel et d'éducation pour tous.
             </p>
           </div>
-          <div className="space-y-4">
+          <div className="w-full md:w-1/2 space-y-4">
             <InfiniteSlider duration={40}>
               {images.slice(0, 4).map((src, i) => (
                 <Image key={i} src={src} alt="Museum" width={300} height={200} className="rounded-lg object-cover" />
@@ -52,7 +52,7 @@ export default function OurStory() {
             <p className="text-black text-lg">Tous les jours de 10h00 à 19h00</p>
             <p className="text-black text-lg">Dimanches : fermé</p>
           </div>
-          <div className="text-right">
+          <div className="text-left md:text-right">
             <p className="text-[var(--brown)] text-lg font-semibold">Dakar, Sénégal</p>
             <p className="text-[var(--brown)] text-lg">Route de la Corniche Ouest</p>
           </div>
