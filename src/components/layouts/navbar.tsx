@@ -15,7 +15,7 @@ export default function Navbar() {
   ]
 
   return (
-    <header className="sticky top-0 z-50 p-4 bg-transparent backdrop-blur-md">
+    <header className="sticky top-0 z-50 p-4 bg-transparent">
       <nav className="bg-[#1C1C1C] text-white rounded-full w-full max-w-7xl mx-auto">
 
 
