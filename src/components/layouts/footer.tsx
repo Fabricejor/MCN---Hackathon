@@ -106,7 +106,7 @@ export default function Footer() {
               type="submit"
               className="px-6 py-2 bg-[#D4AF37] text-[#1C1C1C] rounded font-medium hover:bg-[#F5F1E6] transition-colors text-sm"
             >
-              S&apos;abonner
+              S'abonner
             </button>
           </form>
         </div>
