@@ -1,15 +1,17 @@
 // la page qui acceuillera la billeterie
 import React from 'react'
 import VisitInfo from '@/components/VisitInfo'
-import HeroBanner from '@/components/HeroBanner'
+import AnimatedHero from '@/components/AnimatedHero'
 import UpcomingEvents from '@/components/UpcomingEvents'
 import MuseumShop from '@/components/MuseumShop'
+import ReservationPricing from '@/components/ReservationPricing'
 
-export default function page() {
+export default function BilleteriePage() {
   return (
     <div>
-      <HeroBanner />
+      <AnimatedHero />
       <VisitInfo />
+      <ReservationPricing />
       <UpcomingEvents />
       <MuseumShop />
     </div>

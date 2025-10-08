@@ -2,20 +2,26 @@
 import React from 'react'
 import Link from 'next/link'
 
+type Category = 'Livres' | 'Artisanat' | 'Reproductions'
+
 type ShopItem = {
   title: string
   price: string
   image: string
+  category: Category
 }
 
 function ShopCard({ title, price, image }: ShopItem) {
+  const priceValue = price.replace(/\s/g, '').replace('FCFA', '')
+  const purchaseUrl = `/achat?title=${encodeURIComponent(title)}&price=${encodeURIComponent(priceValue)}&image=${encodeURIComponent(image)}`
+  
   return (
     <div className="overflow-hidden rounded-xl border border-black/10 bg-[var(--light)] shadow-sm">
       <img src={image} alt="" className="h-36 w-full object-cover" />
       <div className="space-y-2 p-4">
         <h4 className="text-base font-semibold text-[var(--black)]">{title}</h4>
         <p className="text-sm text-[var(--brown)]">{price}</p>
-        <Link href="/boutique" className="mt-3 inline-flex w-full items-center justify-center rounded-md bg-[var(--gold)] px-4 py-2.5 text-sm font-semibold text-[var(--black)] hover:brightness-95">
+        <Link href={purchaseUrl} className="mt-3 inline-flex w-full items-center justify-center rounded-md bg-[var(--gold)] px-4 py-2.5 text-sm font-semibold text-[var(--black)] hover:brightness-95">
           Acheter
         </Link>
       </div>
@@ -30,23 +36,29 @@ export default function MuseumShop() {
       title: 'Catalogue des collections',
       price: '8 500 FCFA',
       image: '/images/billeterie%20v1%20boutique.png',
+      category: 'Livres',
     },
     {
       title: 'Masque artisanal',
       price: '12 000 FCFA',
       image: '/images/billeterie%20v1%20boutique%20(2).png',
+      category: 'Artisanat',
     },
     {
       title: 'Cartes postales',
       price: '2 000 FCFA',
       image: '/images/billeterie%20v1%20boutique%20(3).png',
+      category: 'Reproductions',
     },
     {
       title: 'Bijou inspiré des collections',
       price: '9 500 FCFA',
       image: '/images/billeterie%20v1%20boutique%20(4).png',
+      category: 'Artisanat',
     },
   ]
+
+  const filteredItems = activeFilter === 'Tous' ? items : items.filter((it) => it.category === activeFilter)
 
   return (
     <section className="mx-auto max-w-6xl px-4 py-10 sm:py-12">
@@ -66,7 +78,7 @@ export default function MuseumShop() {
                 key={label}
                 onClick={() => setActiveFilter(label)}
                 type="button"
-                className={`rounded-md px-3 py-1.5 text-sm font-semibold transition ${
+                className={`rounded-md px-3 py-1.5 text-sm font-semibold transition-colors ${
                   isActive
                     ? 'bg-[var(--gold)] text-[var(--black)] shadow'
                     : 'bg-transparent text-[var(--black)] hover:bg-[color:rgb(0_0_0_/_0.04)]'
@@ -81,8 +93,10 @@ export default function MuseumShop() {
       </div>
 
       <div className="mt-6 grid gap-6 sm:mt-8 sm:grid-cols-2 lg:grid-cols-4">
-        {items.map((it) => (
-          <ShopCard key={it.title} {...it} />
+        {filteredItems.map((it) => (
+          <div key={it.title} className="animate-[fadeInUp_0.45s_ease-out]">
+            <ShopCard {...it} />
+          </div>
         ))}
       </div>
     </section>

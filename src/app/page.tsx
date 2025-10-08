@@ -1,5 +1,9 @@
-import { redirect } from 'next/navigation'
+import React from 'react'
 
 export default function Home() {
-  redirect('/billeterie')
+  return (
+    <div className="min-h-screen bg-[var(--beige)]">
+      {/* Page d'accueil - À remplir avec le contenu souhaité */}
+    </div>
+  )
 }
