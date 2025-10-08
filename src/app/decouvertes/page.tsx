@@ -6,6 +6,8 @@ import Link from 'next/link';
 import Navbar from '@/components/layouts/Navbar';
 import Footer from '@/components/layouts/Footer';
 import { HeroGeometric } from '@/components/ui/shape-landing-hero';
+import { HotelCard } from '@/components/ui/card';
+import { FeatureCard } from '@/components/ui/feature-card';
 
 type FilterType = 'Toutes' | 'Peintures' | 'Sculptures' | 'Textiles' | 'Contemporain';
 
@@ -89,48 +91,25 @@ export default function DecouvertesPage() {
           </div>
 
           {/* Cartes d'expositions */}
-          <div className="space-y-6">
+          <div className="space-y-8 flex flex-col items-center">
             {filteredExpositions.map((expo) => (
-              <div
+              <HotelCard
                 key={expo.id}
-                className="bg-[#F5F1E6] rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-shadow"
+                className="w-full max-w-5xl"
+                imageUrl={expo.image}
+                imageAlt={expo.title}
+                roomType={expo.category}
+                hotelName={expo.title}
+                location={expo.permanent ? "Exposition permanente" : expo.date}
+                rating={4.8}
+                reviewCount={128}
               >
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 p-6">
-                  {/* Image */}
-                  <div className="relative h-48 md:h-auto rounded-xl overflow-hidden">
-                    <Image
-                      src={expo.image}
-                      alt={expo.title}
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
-
-                  {/* Contenu */}
-                  <div className="md:col-span-2 flex flex-col justify-between">
-    <div>
-                      <h3 className="text-2xl font-bold mb-3 text-[#1C1C1C]" style={{ fontFamily: 'Playfair Display, serif' }}>
-                        {expo.title}
-                      </h3>
-                      <p className="text-gray-700 mb-4 leading-relaxed">
-                        {expo.description}
-                      </p>
-                    </div>
-
-                    <div className="flex items-center justify-between">
-                      <div className="flex items-center gap-2 text-sm text-gray-600">
-                        <span>🏛️</span>
-                        <span>{expo.date}</span>
-                      </div>
-                      <Link href={`/decouvertes/${expo.id}`}>
-                        <button className="bg-[#D4AF37] text-[#1C1C1C] px-6 py-2 rounded-lg font-semibold hover:bg-[#c5a033] transition-colors">
-                          Explorer
-                        </button>
-                      </Link>
-                    </div>
-                  </div>
-                </div>
-              </div>
+                <Link href={`/decouvertes/${expo.id}`}>
+                  <button className="bg-[#D4AF37] text-[#1C1C1C] px-6 py-2 rounded-full font-semibold hover:bg-[#c5a033] transition-colors">
+                    Explorer
+                  </button>
+                </Link>
+              </HotelCard>
             ))}
           </div>
         </div>
@@ -144,59 +123,26 @@ export default function DecouvertesPage() {
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {/* Parcours 1 */}
-            <div className="bg-[#F5F1E6] rounded-2xl p-8 text-center">
-              <div className="text-6xl mb-4">
-                <svg className="w-16 h-16 mx-auto" fill="#D4AF37" viewBox="0 0 24 24">
-                  <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/>
-                </svg>
-              </div>
-              <h3 className="text-xl font-bold mb-3 text-[#1C1C1C]" style={{ fontFamily: 'Playfair Display, serif' }}>
-                L'Afrique des Royaumes
-              </h3>
-              <p className="text-gray-700 text-sm mb-6 leading-relaxed">
-                Découvrez les grandes dynasties africaines et leurs trésors artistiques
-              </p>
-              <button className="bg-[#D4AF37] text-[#1C1C1C] px-6 py-2.5 rounded-full font-semibold hover:bg-[#c5a033] transition-colors">
-                Suivre le parcours
-              </button>
-            </div>
+            <FeatureCard
+              icon={<span className="text-3xl">🏛️</span>}
+              title="L'Afrique des Royaumes"
+              description="Découvrez les grandes dynasties africaines et leurs trésors artistiques"
+              className="bg-[#F5F1E6]"
+            />
 
-            {/* Parcours 2 */}
-            <div className="bg-[#F5F1E6] rounded-2xl p-8 text-center">
-              <div className="text-6xl mb-4">
-                <svg className="w-16 h-16 mx-auto" fill="#D4AF37" viewBox="0 0 24 24">
-                  <path d="M12 2C11.5 2 11 2.19 10.59 2.59L2.59 10.59C1.8 11.37 1.8 12.63 2.59 13.41L10.59 21.41C11.37 22.2 12.63 22.2 13.41 21.41L21.41 13.41C22.2 12.63 22.2 11.37 21.41 10.59L13.41 2.59C13 2.19 12.5 2 12 2M12 4L20 12L12 20L4 12L12 4M12 7C9.24 7 7 9.24 7 12S9.24 17 12 17 17 14.76 17 12 14.76 7 12 7M12 9C13.66 9 15 10.34 15 12S13.66 15 12 15 9 13.66 9 12 10.34 9 12 9Z"/>
-                </svg>
-              </div>
-              <h3 className="text-xl font-bold mb-3 text-[#1C1C1C]" style={{ fontFamily: 'Playfair Display, serif' }}>
-                Arts et Spiritualité
-              </h3>
-              <p className="text-gray-700 text-sm mb-6 leading-relaxed">
-                L'art sacré africain et ses dimensions spirituelles profondes
-              </p>
-              <button className="bg-[#D4AF37] text-[#1C1C1C] px-6 py-2.5 rounded-full font-semibold hover:bg-[#c5a033] transition-colors">
-                Suivre le parcours
-              </button>
-            </div>
+            <FeatureCard
+              icon={<span className="text-3xl">🕯️</span>}
+              title="Arts et Spiritualité"
+              description="L'art sacré africain et ses dimensions spirituelles profondes"
+              className="bg-[#F5F1E6]"
+            />
 
-            {/* Parcours 3 */}
-            <div className="bg-[#F5F1E6] rounded-2xl p-8 text-center">
-              <div className="text-6xl mb-4">
-                <svg className="w-16 h-16 mx-auto" fill="#D4AF37" viewBox="0 0 24 24">
-                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
-                </svg>
-              </div>
-              <h3 className="text-xl font-bold mb-3 text-[#1C1C1C]" style={{ fontFamily: 'Playfair Display, serif' }}>
-                Diaspora Africaine
-              </h3>
-              <p className="text-gray-700 text-sm mb-6 leading-relaxed">
-                L'influence de l'Afrique dans le monde et les échanges culturels
-              </p>
-              <button className="bg-[#D4AF37] text-[#1C1C1C] px-6 py-2.5 rounded-full font-semibold hover:bg-[#c5a033] transition-colors">
-                Suivre le parcours
-              </button>
-            </div>
+            <FeatureCard
+              icon={<span className="text-3xl">🌍</span>}
+              title="Diaspora Africaine"
+              description="L'influence de l'Afrique dans le monde et les échanges culturels"
+              className="bg-[#F5F1E6]"
+            />
           </div>
         </div>
       </section>
